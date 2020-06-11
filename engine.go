@@ -68,11 +68,6 @@ func (c *Core) process(data []storage.Data) {
 	keys := make([]string, 0)
 
 	for _, v := range data {
-		if v.Err != nil {
-			log.Error(v.Err.Error())
-			continue
-		}
-
 		if c.memKv.Equal(v.Key, v.Value) {
 			continue
 		}
