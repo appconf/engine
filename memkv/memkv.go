@@ -1,6 +1,7 @@
 package memkv
 
 import (
+	"reflect"
 	"strings"
 	"sync"
 )
@@ -90,7 +91,7 @@ func (kv *MemKv) Equal(key string, value interface{}) bool {
 		return false
 	}
 
-	return v.Value == value
+	return reflect.DeepEqual(v.Value, value)
 }
 
 //Delete 删除key
